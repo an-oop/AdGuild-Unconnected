@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>AdGuild Demo</title>
+	<meta charset='utf-8'>
+	<link rel="stylesheet" href="main.css" type="text/css" media="all">
+	<script src="capture.js"></script>
+	<script src="reimg.js"></script>
+</head>
+
+<body>
+
+<div class="contentarea">
+	<h1>
+		<tr style="text-align:center">
+		<font color="#ff3f4f"> AdGuild Digital Signage Demo </font>
+		</tr>
+	</h1>
+
+	<p>
+		<font color="#2993ff"> <font size="3">
+		This page demonstrates how advertisements/videos can be changed based on the age and gender of the person detected by the device.
+		</font>
+		</font>
+	</p>
+
+  <div class="camera">
+    <video id="video">Video stream not available.</video>
+    <button id="startbutton">Take photo</button>
+  </div>
+
+  <canvas id="canvas">
+  </canvas>
+
+  <div class="output">
+    <img id="photo" alt="Capture photo will appear here.">
+  </div>
+
+  <p>
+	Please click on "Take photo" button to capture a new photo. Every time a photo is captured, the advertisement video adjusts as per the person detected by the face detection app.
+  </p>
+
+  <p>
+	This tool uses code from github link: https://github.com/mdn/samples-server/tree/master/s/webrtc-capturestill and the face detection cloud API - Face++.
+  </p>
+
+  <div class="camera">
+<!--    <button id="downloadimage">Download Photo</button> -->
+<!-- 	<a id="downloadimage" download="YourFileName.jpg" href="#">Download as image</a> -->
+<!--	<a id="downloadimage" download="myImage.jpg" ><input id="saveBtn" type="button" onclick="downloadphoto()"/></a> -->
+<!--	<a id="downloadimage" download="myImage.jpg" onclick="downloadphoto()"><input id="saveBtn" type="button" /></a> -->
+  </div>
+
+</div>
+
+<div id="videoContainer">
+    <iframe id="youtubeVideo"
+	src="http://www.youtube.com/embed/DLHeOVl2-38?autoplay=1" allowfullscreen>
+	</iframe>
+</div>
+
+<!--
+<div class="col-md">
+
+	<div class="col-lg">
+		<input class="form-control" id="uploadFile" type="text" placeholder="Choose File" disabled>
+	</div>
+
+	<div class="pull-right fileUpload btn btn-primary">
+		<span>Upload</span>
+		<input type="file" accept="image/*" class="upload" id="uploadBtn">
+	</div>
+
+	<div class="status"></div>
+
+</div>
+-->
+
+<script>
+
+  function downloadphoto() {
+	    var dt = canvas.toDataURL('image/png');
+	    this.href = dt;
+	    //this.href = dt.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+	};
+
+  downloadimage.addEventListener('click', function(ev){
+      downloadphoto();
+      ev.preventDefault();
+    }, false);
+
+
+</script>
+
+
+</body>
+</html>
